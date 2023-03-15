@@ -8,7 +8,7 @@ socket.emit("obter_documentos", (documentos) => {
   });
 });
 
-function emitirAdicionarDocumento(nome) {
+export function emitirAdicionarDocumento(nome) {
   socket.emit("adicionar_documento", nome);
 }
 
@@ -23,5 +23,3 @@ socket.on("documento_existente", (nome) => {
 socket.on("excluir_documento_sucesso", (nome) => {
   removerLinkDocumento(nome);
 });
-
-export { emitirAdicionarDocumento };

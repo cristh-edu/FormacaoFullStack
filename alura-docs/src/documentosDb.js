@@ -1,52 +1,21 @@
 import { documentosColecao } from "./dbConnect.js";
 
-function obterDocumentos() {
-  const documentos = documentosColecao.find().toArray();
-  return documentos;
+export function obterDocumentos() {
+  return documentosColecao.find().toArray();
 }
 
-function adicionarDocumento(nome) {
-  const resultado = documentosColecao.insertOne({
-    nome,
-    texto: "",
-  });
-
-  return resultado;
+export function adicionarDocumento(nome) {
+  return documentosColecao.insertOne({ nome, texto: "" });
 }
 
-function encontrarDocumento(nome) {
-  const documento = documentosColecao.findOne({
-    nome,
-  });
-  return documento;
+export function encontrarDocumento(nome) {
+  return documentosColecao.findOne({ nome });
 }
 
-function atualizaDocumento(nome, texto) {
-  const atualizacao = documentosColecao.updateOne(
-    {
-      nome,
-    },
-    {
-      $set: {
-        texto,
-      },
-    }
-  );
-  return atualizacao;
+export function atualizaDocumento(nome, texto) {
+  return documentosColecao.updateOne({ nome }, { $set: { texto } });
 }
 
-function excluirDocumento(nome) {
-  const resultado = documentosColecao.deleteOne({
-    nome,
-  });
-
-  return resultado;
+export function excluirDocumento(nome) {
+  return documentosColecao.deleteOne({ nome });
 }
-
-export {
-  encontrarDocumento,
-  atualizaDocumento,
-  obterDocumentos,
-  adicionarDocumento,
-  excluirDocumento,
-};
