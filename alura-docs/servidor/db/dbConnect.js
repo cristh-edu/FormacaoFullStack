@@ -1,7 +1,7 @@
 import { MongoClient } from "mongodb";
 
 const cliente = new MongoClient(
-  `mongodb+srv://cristh:teste123@aluracluster.bqimwlq.mongodb.net/?retryWrites=true&w=majority`
+  `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@aluracluster.bqimwlq.mongodb.net/?retryWrites=true&w=majority`
 );
 
 let documentosColecao;
